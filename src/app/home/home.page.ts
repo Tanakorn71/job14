@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -8,7 +9,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor( private detail:NavController) {}
+
   items=[
     {
       id:1,
@@ -42,5 +44,9 @@ export class HomePage {
       imageURL: 'https://images.droidsans.com/wp-content/uploads/2023/01/rog-zephyrus-m16-2023-600x400.png',
     },
   ]
+
+  gotoDetail(i:any){
+    this.detail.navigateForward('/detail',{state:{i}})
+  }
 
 }
